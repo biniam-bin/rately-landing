@@ -14,31 +14,33 @@ import {NotificationContainer, NotificationManager} from "react-notifications";
 
 
 const Nav = () =>{
-    useEffect(() => {
-        window.addEventListener("scroll",
-            () => {
-                console.log(window.scrollY);
-                let links = document.getElementsByTagName("a")
-                if (window.scrollY >= 150) {
-                    Array.from(document.getElementsByClassName("nav") as HTMLCollectionOf<HTMLElement>)[0].style.backgroundColor = "white";
-                    Array.from(document.getElementsByClassName("nav")as HTMLCollectionOf<HTMLElement>)[0].style.position = "sticky";
-                    Array.from(document.getElementsByClassName("nav")as HTMLCollectionOf<HTMLElement>)[0].style.boxShadow = "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px";
-
-                    for (let i = 0; i < links.length; i++) {
-                        links[i].style.color = "#2b2350";
-                    }
-                } else {
-
-                    Array.from(document.getElementsByClassName("nav")as HTMLCollectionOf<HTMLElement>)[0].style.position = "absolute";
-                    Array.from(document.getElementsByClassName("nav")as HTMLCollectionOf<HTMLElement>)[0].style.backgroundColor = "transparent";
-                    Array.from(document.getElementsByClassName("nav")as HTMLCollectionOf<HTMLElement>)[0].style.boxShadow = "none";
-                    for (let i = 0; i < links.length; i++) {
-                        links[i].style.color = "white";
-                    }
-                }
-            });
-
-    }, [window.scrollY]);
+    // useEffect(() => {
+    //     if (typeof window) {
+    //         // Client-side-only code
+    //     window.addEventListener("scroll",
+    //         () => {
+    //
+    //             let links = document.getElementsByTagName("a")
+    //             if (window.scrollY >= 150) {
+    //                 Array.from(document.getElementsByClassName("nav") as HTMLCollectionOf<HTMLElement>)[0].style.backgroundColor = "white";
+    //                 Array.from(document.getElementsByClassName("nav")as HTMLCollectionOf<HTMLElement>)[0].style.position = "sticky";
+    //                 Array.from(document.getElementsByClassName("nav")as HTMLCollectionOf<HTMLElement>)[0].style.boxShadow = "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px";
+    //
+    //                 for (let i = 0; i < links.length; i++) {
+    //                     links[i].style.color = "#2b2350";
+    //                 }
+    //             } else {
+    //
+    //                 Array.from(document.getElementsByClassName("nav")as HTMLCollectionOf<HTMLElement>)[0].style.position = "absolute";
+    //                 Array.from(document.getElementsByClassName("nav")as HTMLCollectionOf<HTMLElement>)[0].style.backgroundColor = "transparent";
+    //                 Array.from(document.getElementsByClassName("nav")as HTMLCollectionOf<HTMLElement>)[0].style.boxShadow = "none";
+    //                 for (let i = 0; i < links.length; i++) {
+    //                     links[i].style.color = "white";
+    //                 }
+    //             }
+    //         });}
+    //
+    // }, []);
 
     const slider : MutableRefObject<HTMLDivElement | null> =  useRef(null);
     slider.current?.classList.remove("active");
